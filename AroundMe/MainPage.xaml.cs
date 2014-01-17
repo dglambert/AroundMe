@@ -34,28 +34,55 @@ namespace AroundMe
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
+            SystemTray.ProgressIndicator = new ProgressIndicator();
+
             UpdateMap();
+        }
+
+        private static void SetProgressIndicator(bool isVisible)
+        {
+            SystemTray.ProgressIndicator.IsIndeterminate = isVisible;
+            SystemTray.ProgressIndicator.IsVisible = isVisible;
         }
 
         private async void UpdateMap()
         {
-            //Geolocator geolocator = new Geolocator();
-            //geolocator.DesiredAccuracyInMeters = 50;
-            
-            //Geoposition position = 
-            //    await geolocator.GetGeopositionAsync(TimeSpan.FromMinutes(1), TimeSpan.FromSeconds(30));
+            Geolocator geolocator = new Geolocator();
+            geolocator.DesiredAccuracyInMeters = 50;
 
-            //var gpsCoorCenter =
-            //    new GeoCoordinate(position.Coordinate.Latitude, position.Coordinate.Longitude);
+            SetProgressIndicator(true);
+            SystemTray.ProgressIndicator.Text = "Getting GPS Location";
+
+            try
+            {
+                Geoposition position =
+                await geolocator.GetGeopositionAsync(TimeSpan.FromMinutes(1), TimeSpan.FromSeconds(30));
+
+                SystemTray.ProgressIndicator.Text = "Acquired";
+
+                var gpsCoorCenter =
+                    new GeoCoordinate(position.Coordinate.Latitude, position.Coordinate.Longitude);
 
 
-            ///////////// Coords for John Hancock Center Chicago /////////
-            var gpsCoorCenter = new GeoCoordinate(41.8988, -87.6123);
-            
-            //////////////////////////////////////////////////////////////
+                ///////////// Coords for John Hancock Center Chicago /////////
+                //var gpsCoorCenter = new GeoCoordinate(41.8988, -87.6123);
 
-            AroundMeMap.Center = gpsCoorCenter;
-            AroundMeMap.ZoomLevel = 15;
+                
+                AroundMeMap.Center = gpsCoorCenter;
+                AroundMeMap.ZoomLevel = 15;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                MessageBox.Show("Location is disabled in phone settings.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                SetProgressIndicator(false);
+            }
         }
 
         // Sample code for building a localized ApplicationBar
@@ -77,7 +104,10 @@ namespace AroundMe
 
         private void SearchClick(object sender, EventArgs e)
         {
-            string navTo = string.Format("/SearchResults.xaml?latitude={0}&longitude={1}", AroundMeMap.Center.Latitude, AroundMeMap.Center.Longitude);
+            string topic = HttpUtility.UrlEncode(SearchTopic.Text);
+
+            string navTo = string.Format(   "/SearchResults.xaml?latitude={0}&longitude={1}&topic={2}&radius={3}", 
+                                            AroundMeMap.Center.Latitude, AroundMeMap.Center.Longitude, topic, 5);
             NavigationService.Navigate(new Uri(navTo, UriKind.RelativeOrAbsolute));
         }
     }
