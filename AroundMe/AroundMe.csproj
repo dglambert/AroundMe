@@ -108,6 +108,7 @@
     <Compile Include="SearchResults.xaml.cs">
       <DependentUpon>SearchResults.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StoryBoard.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

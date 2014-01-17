@@ -30,15 +30,21 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 
+            <TextBlock x:Name="NoPhotosFound" Visibility="Collapsed" Text="No Photos Found" Style="{StaticResource PhoneTextTitle2Style}" />
+            
             <toolkit:LongListMultiSelector LayoutMode="Grid" GridCellSize="105,105" ItemsSource="{Binding}" EnforceIsSelectionEnabled="True" SelectionChanged="PhotosForLockscreen_SelectionChanged" >
                 <toolkit:LongListMultiSelector.ItemTemplate>
                     <DataTemplate>
-                        <Image Source="{Binding Image320}"
-                               Stretch="UniformToFill" />
+                        <Image Source="{Binding Image320}" Stretch="UniformToFill" Opacity="0" ImageOpened="Image_ImageOpened" />
                     </DataTemplate>
                 </toolkit:LongListMultiSelector.ItemTemplate>
                 
             </toolkit:LongListMultiSelector>
+            
+            <StackPanel x:Name="Overlay" VerticalAlignment="Center" Visibility="Collapsed">
+                <TextBlock HorizontalAlignment="Center" Text="Loading ..." />
+                <ProgressBar x:Name="OverlayProgessBar" IsIndeterminate="True" />
+            </StackPanel>
             
         </Grid>
     </Grid>

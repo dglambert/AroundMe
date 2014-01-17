@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using System.Windows.Media.Animation;
 
 namespace AroundMe
 {
@@ -31,11 +32,21 @@ namespace AroundMe
 
         async void SearchResults_Loaded(object sender, RoutedEventArgs e)
         {
-            //LocationTextBlock.Text = string.Format("Location: {0} & {1}", _latitude, _longitude);
+
+            Overlay.Visibility = Visibility.Visible;
+            OverlayProgessBar.IsIndeterminate = true;
 
             var images =  await FlickrImage.GetFlickrImages(flickrApiKey, _topic, _latitude, _longitude, _radius);
 
             DataContext = images;
+
+            if (images.Count == 0)
+                NoPhotosFound.Visibility = Visibility.Visible;
+            else
+                NoPhotosFound.Visibility = Visibility.Collapsed;
+
+            Overlay.Visibility = Visibility.Collapsed;
+            OverlayProgessBar.IsIndeterminate = false;
 
         }
 
@@ -57,6 +68,27 @@ namespace AroundMe
         private void PhotosForLockscreen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Image_ImageOpened(object sender, RoutedEventArgs e)
+        {
+            Image img = sender as Image;
+
+            if (img == null)
+                return;
+
+            Storyboard s = new Storyboard();
+
+            DoubleAnimation doubleAni = new DoubleAnimation();
+            doubleAni.To = 1;
+            doubleAni.Duration = new Duration(TimeSpan.FromMilliseconds(2000));
+
+            Storyboard.SetTarget(doubleAni, img);
+            Storyboard.SetTargetProperty(doubleAni, new PropertyPath(OpacityProperty));
+
+            s.Children.Add(doubleAni);
+
+            s.Begin();
         }
     }
 }
