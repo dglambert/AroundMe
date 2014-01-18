@@ -34,7 +34,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             
-            <maps:Map Name="AroundMeMap" />
+            <maps:Map Name="AroundMeMap" Loaded="AroundMeMap_Loaded"/>
             
             <StackPanel Grid.Row="1">
                 <TextBlock Text="Topic" Foreground="{StaticResource PhoneSubtleBrush}" />

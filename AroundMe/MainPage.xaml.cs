@@ -16,6 +16,7 @@ using Windows.Devices.Geolocation;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Windows.Media.Imaging;
+using Microsoft.Phone.Maps;
 
 namespace AroundMe
 {
@@ -109,6 +110,12 @@ namespace AroundMe
             string navTo = string.Format(   "/SearchResults.xaml?latitude={0}&longitude={1}&topic={2}&radius={3}", 
                                             AroundMeMap.Center.Latitude, AroundMeMap.Center.Longitude, topic, 5);
             NavigationService.Navigate(new Uri(navTo, UriKind.RelativeOrAbsolute));
+        }
+
+        private void AroundMeMap_Loaded(object sender, RoutedEventArgs e)
+        {
+            MapsSettings.ApplicationContext.ApplicationId = "";
+            MapsSettings.ApplicationContext.AuthenticationToken = "";
         }
     }
 }

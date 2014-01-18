@@ -72,3 +72,7 @@ C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeg
 C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe\Bin\Debug\vi-VN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe\Bin\Debug\AroundMe.Core.dll
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe\Bin\Debug\AroundMe.Core.pdb
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe\Bin\Debug\AroundMe.Scheduler.dll
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe\Bin\Debug\AroundMe.Scheduler.pdb

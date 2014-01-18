@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Phone.System.UserProfile;
 
-namespace AroundMe
+namespace AroundMe.Core
 {
-    class LockScreenHelpers
+    public class LockScreenHelpers
     {
         private const string BackgroundRoot = "Images/";
         private const string IconRoot = "Shared/ShellContent/";
@@ -64,7 +64,7 @@ namespace AroundMe
             }    
         }
 
-        public static void SetRandomImageFromLocalStorage()
+        public static async Task SetRandomImageFromLocalStorage()
         {
             string fileData;
 
@@ -90,11 +90,11 @@ namespace AroundMe
                 int index = rand.Next(images.Count);
 
                 // Set the image as the lockscreen
-                SetImage(images[index].Image1024);
+                await SetImage(images[index].Image1024);
             }
         }
 
-        public async static void SetImage(Uri uri)
+        public async static Task SetImage(Uri uri)
         {
             string fileName = uri.Segments[uri.Segments.Length-1];
             string imageName = BackgroundRoot + fileName;
@@ -119,10 +119,10 @@ namespace AroundMe
             }
 
             // Set the lockscreen
-            SetLockScreen(fileName);
+            await SetLockScreen(fileName);
         }
 
-        private async static void SetLockScreen(string fileName)
+        private async static Task SetLockScreen(string fileName)
         {
             bool hasAccessForLockScreen = LockScreenManager.IsProvidedByCurrentApplication;
 

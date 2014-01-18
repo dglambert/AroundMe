@@ -1,0 +1,13 @@
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\Bin\Debug\AroundMe.Scheduler.dll
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\Bin\Debug\AroundMe.Scheduler.pdb
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\Bin\Debug\AroundMe.Core.dll
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\Bin\Debug\System.Net.Http.dll
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\Bin\Debug\Newtonsoft.Json.dll
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\Bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\Bin\Debug\AroundMe.Core.pdb
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\Bin\Debug\System.Net.Http.xml
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\Bin\Debug\Newtonsoft.Json.xml
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\Bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\obj\Debug\AroundMe.Scheduler.csprojResolveAssemblyReference.cache
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\obj\Debug\AroundMe.Scheduler.dll
+C:\Users\Devin\SkyDrive\Documents\Development\Windows Phone\Channel9\AbsoluteBeginners\AroundMe\AroundMe.Scheduler\obj\Debug\AroundMe.Scheduler.pdb

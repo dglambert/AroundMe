@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace AroundMe
+namespace AroundMe.Core
 {
-    class FlickrImage
+    public class FlickrImage
     {
 
         public Uri Image320 { get; set; }

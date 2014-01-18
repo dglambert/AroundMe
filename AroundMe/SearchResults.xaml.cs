@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media.Animation;
 using AroundMe.Resources;
+using AroundMe.Core;
 
 namespace AroundMe
 {
@@ -46,7 +47,7 @@ namespace AroundMe
             ApplicationBar.Buttons.Add(appBarButton);
         }
 
-        void appBarButton_Click(object sender, EventArgs e)
+        async void appBarButton_Click(object sender, EventArgs e)
         {
             List<FlickrImage> imgs = new List<FlickrImage>();
 
@@ -65,7 +66,7 @@ namespace AroundMe
             LockScreenHelpers.SaveSelectedBackgroundScreens(imgs);
 
             // randomly select one item and set it as the lockscreen
-            LockScreenHelpers.SetRandomImageFromLocalStorage();
+            await LockScreenHelpers.SetRandomImageFromLocalStorage();
 
             MessageBox.Show("You have a new background!", "Set!", MessageBoxButton.OK);
 
