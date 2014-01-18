@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media.Animation;
+using AroundMe.Resources;
 
 namespace AroundMe
 {
@@ -27,6 +28,46 @@ namespace AroundMe
             InitializeComponent();
 
             Loaded += SearchResults_Loaded;
+
+            BuildLocalizedApplicationBar();
+
+        }
+
+        private void BuildLocalizedApplicationBar()
+        {
+            // Set the page's ApplicationBar to a new instance of ApplicationBar.
+            ApplicationBar = new ApplicationBar();
+            ApplicationBar.IsVisible = false;
+
+            // Create a new button and set the text value to the localized string from AppResources.
+            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Toolkit.Content/ApplicationBar.Check.png", UriKind.Relative));
+            appBarButton.Text = AppResources.SearchResultsAppBarButtonText;
+            appBarButton.Click += appBarButton_Click;
+            ApplicationBar.Buttons.Add(appBarButton);
+        }
+
+        void appBarButton_Click(object sender, EventArgs e)
+        {
+            List<FlickrImage> imgs = new List<FlickrImage>();
+
+            foreach (object item in PhotosForLockscreen.SelectedItems)
+            {
+                FlickrImage img = item as FlickrImage;
+
+                if (img != null)
+                    imgs.Add(img);
+            }
+
+            // clean out /remove all images currecntly in IsolatedStorage
+            LockScreenHelpers.CleanStorage();
+
+            // save this new list of selected images to IsolatedStorage
+            LockScreenHelpers.SaveSelectedBackgroundScreens(imgs);
+
+            // randomly select one item and set it as the lockscreen
+            LockScreenHelpers.SetRandomImageFromLocalStorage();
+
+            MessageBox.Show("You have a new background!", "Set!", MessageBoxButton.OK);
 
         }
 
@@ -67,7 +108,10 @@ namespace AroundMe
 
         private void PhotosForLockscreen_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (PhotosForLockscreen.SelectedItems.Count == 0)
+                ApplicationBar.IsVisible = false;
+            else
+                ApplicationBar.IsVisible = true;
         }
 
         private void Image_ImageOpened(object sender, RoutedEventArgs e)

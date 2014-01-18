@@ -104,5 +104,14 @@ namespace AroundMe.Resources {
                 return ResourceManager.GetString("ResourceLanguage", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set.
+        /// </summary>
+        public static string SearchResultsAppBarButtonText {
+            get {
+                return ResourceManager.GetString("SearchResultsAppBarButtonText", resourceCulture);
+            }
+        }
     }
 }

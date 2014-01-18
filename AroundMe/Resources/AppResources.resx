@@ -134,4 +134,7 @@
   <data name="AppBarMenuItemText" xml:space="preserve">
     <value>Menu Item</value>
   </data>
+  <data name="SearchResultsAppBarButtonText" xml:space="preserve">
+    <value>Set</value>
+  </data>
 </root>

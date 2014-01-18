@@ -32,7 +32,7 @@
 
             <TextBlock x:Name="NoPhotosFound" Visibility="Collapsed" Text="No Photos Found" Style="{StaticResource PhoneTextTitle2Style}" />
             
-            <toolkit:LongListMultiSelector LayoutMode="Grid" GridCellSize="105,105" ItemsSource="{Binding}" EnforceIsSelectionEnabled="True" SelectionChanged="PhotosForLockscreen_SelectionChanged" >
+            <toolkit:LongListMultiSelector Name="PhotosForLockscreen" LayoutMode="Grid" GridCellSize="105,105" ItemsSource="{Binding}" EnforceIsSelectionEnabled="True" SelectionChanged="PhotosForLockscreen_SelectionChanged" >
                 <toolkit:LongListMultiSelector.ItemTemplate>
                     <DataTemplate>
                         <Image Source="{Binding Image320}" Stretch="UniformToFill" Opacity="0" ImageOpened="Image_ImageOpened" />
